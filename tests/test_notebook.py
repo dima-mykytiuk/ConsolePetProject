@@ -2,7 +2,7 @@
 import unittest
 
 from src.notebook import Notes, save_note_in_database
-from db_queries import del_note_from_db
+from src.db_queries import del_note_from_db
 
 
 class TestNoteBook(unittest.TestCase):

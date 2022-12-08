@@ -1,7 +1,7 @@
 """Imports for check validation"""
 import unittest
 
-from check_validation import (
+from src.check_validation import (
     check_name_in_database,
     check_name,
     check_phone,

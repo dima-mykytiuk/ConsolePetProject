@@ -47,7 +47,7 @@ def main():
         "add_tags": add_tags,
         "sort_folder": sort,
     }
-    user_input = input("Command: ")
+    user_input = input("Write your command or type 'help' to get info: ")
     while user_input != 'exit':
         if user_input == "help":
             print(
@@ -64,6 +64,7 @@ def main():
         user_input = input("Command: ")
         if user_input != 'exit':
             print("write 'exit' if you want to leave")
+    print("Thanks for using this application")
 
 
 if __name__ == "__main__":

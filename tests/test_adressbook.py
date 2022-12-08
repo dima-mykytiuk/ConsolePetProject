@@ -2,7 +2,7 @@
 import unittest
 
 from src.adressbook import RecordContacts, save_in_database
-from db_queries import del_contact_from_db
+from src.db_queries import del_contact_from_db
 
 record_to_test = RecordContacts(
     name="Dima", phones=None, birthday=None, email=None, address=None

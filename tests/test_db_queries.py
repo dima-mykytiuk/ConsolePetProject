@@ -4,7 +4,7 @@ from datetime import datetime
 from src.adressbook import RecordContacts, save_in_database
 from src.notebook import Notes, save_note_in_database
 
-from db_queries import (
+from src.db_queries import (
     change_phone_in_db,
     change_birthday_in_db,
     change_name_in_db,
