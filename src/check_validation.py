@@ -3,9 +3,9 @@ import re
 from datetime import date
 from pymongo import MongoClient
 
-client = MongoClient("mongodb://localhost:27017/address_book")
+client = MongoClient("mongodb://localhost:27017/console_assistant")
 
-db = client.address_book
+db = client.console_assistant
 
 
 def check_name_in_database(name: str) -> bool:

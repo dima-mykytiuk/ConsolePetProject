@@ -135,7 +135,7 @@ class RecordContacts:
 def save_in_database(contact: RecordContacts):
     """Save contact in database"""
     if isinstance(contact, RecordContacts):
-        connect(host="mongodb://localhost:27017/address_book")
+        connect(host="mongodb://localhost:27017/console_assistant")
         Contacts(
             name=contact.name.value,
             phone=contact.phones.value,

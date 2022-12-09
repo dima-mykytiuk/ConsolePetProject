@@ -208,8 +208,9 @@ def remove_empty_folders(path_abs, folder_list, folder_sep):
             shutil.rmtree(path)
 
 
-def sort(_dir: str) -> str:
+def sort() -> str:
     """Func to call all functions step by step"""
+    _dir = input("Write path to folder: ")
     folder_sep = "//" if platform == "win32" else "/"
     _dir = Path(_dir)
     main_path = _dir

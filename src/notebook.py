@@ -36,7 +36,7 @@ class Notes:
 def save_note_in_database(note: Notes):
     """Save note in database"""
     if isinstance(note, Notes):
-        connect(host="mongodb://localhost:27017/address_book")
+        connect(host="mongodb://localhost:27017/console_assistant")
         Note(
             name=note.text,
             records=[

@@ -2,9 +2,9 @@
 import datetime
 from pymongo import MongoClient
 
-client = MongoClient("mongodb://localhost:27017/address_book")
+client = MongoClient("mongodb://localhost:27017/console_assistant")
 
-db = client.address_book
+db = client.console_assistant
 
 
 def change_name_in_db(old_name: str, new_name: str) -> str:
@@ -71,12 +71,18 @@ def del_contact_from_db(contact_name: str) -> str:
     return "Successfully deleted contact"
 
 
-def get_contact_from_db(contact_name: str) -> dict:
+def get_contact_from_db(contact_name: str) -> list:
     """Func to get user from database"""
-    result = db.contacts.find_one({"name": contact_name})
-    if result is None:
+    contacts_list = []
+    results = db.contacts.find({"name": contact_name})
+    
+    for result in results:
+        email = result['email'] if result['email'] is True else '–'
+        address = result['address'] if result['address'] is True else '–'
+        contacts_list.append({"name": result['name'], "phone": result['phone'], "birthday": str(result['birthday'].date()), "email": email, "address": address})
+    if results is None:
         return "That name not in db"
-    return result
+    return contacts_list
 
 
 def get_all_contacts_from_db() -> list:
@@ -84,7 +90,9 @@ def get_all_contacts_from_db() -> list:
     contacts_list = []
     results = db.contacts.find({}, {"_id": 0})
     for result in results:
-        contacts_list.append(result)
+        email = result['email'] if result['email'] is True else '–'
+        address = result['address'] if result['address'] is True else '–'
+        contacts_list.append({"name": result['name'], "phone": result['phone'], "birthday": str(result['birthday'].date()), "email": email, "address": address})
     return contacts_list
 
 
